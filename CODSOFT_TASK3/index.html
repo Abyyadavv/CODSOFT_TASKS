@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your income and expenses with ExpenseFlow.">
+    <title>ExpenseFlow | Personal Finance Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="#" class="brand">Expense<span>Flow.</span></a>
+
+        <div class="header-label">
+            <span class="status-dot"></span>
+            Personal Finance Dashboard
+        </div>
+    </header>
+
+    <main class="dashboard">
+
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">YOUR FINANCIAL OVERVIEW</p>
+                <h1>Manage your <span>money.</span></h1>
+                <p class="welcome-text">
+                    Track your income, control your expenses, and stay on top of your finances.
+                </p>
+            </div>
+
+            <div class="date-box">
+                <span>Today's Date</span>
+                <strong id="todayDate">--</strong>
+            </div>
+        </section>
+
+        <!-- Financial Summary -->
+        <section class="summary-grid">
+
+            <article class="summary-card balance-card">
+                <div class="summary-top">
+                    <span>Current Balance</span>
+                    <span class="summary-icon">₹</span>
+                </div>
+                <h2 id="balanceAmount">₹0.00</h2>
+                <p>Your available balance</p>
+            </article>
+
+            <article class="summary-card income-card">
+                <div class="summary-top">
+                    <span>Total Income</span>
+                    <span class="summary-icon">↗</span>
+                </div>
+                <h2 id="incomeAmount">₹0.00</h2>
+                <p>Money received</p>
+            </article>
+
+            <article class="summary-card expense-card">
+                <div class="summary-top">
+                    <span>Total Expenses</span>
+                    <span class="summary-icon">↘</span>
+                </div>
+                <h2 id="expenseAmount">₹0.00</h2>
+                <p>Money spent</p>
+            </article>
+
+        </section>
+
+        <!-- Add Transaction -->
+        <section class="content-grid">
+
+            <article class="panel transaction-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">RECORD YOUR MONEY</p>
+                        <h2>Add Transaction</h2>
+                    </div>
+                </div>
+
+                <form id="transactionForm" novalidate>
+
+    <div class="form-group">
+        <label for="description">Transaction Name</label>
+
+        <input
+            type="text"
+            id="description"
+            name="description"
+            placeholder="e.g. Monthly salary"
+            maxlength="80"
+            required
+        >
+
+        <small class="error-message" id="descriptionError"></small>
+    </div>
+
+                        <div class="form-group">
+                            <label for="amount">Amount (₹)</label>
+                            <input
+                                type="number"
+                                id="amount"
+                                placeholder="e.g. 1500"
+                                min="0.01"
+                                step="0.01"
+                            >
+                            <small class="error-message" id="amountError"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type">Transaction Type</label>
+                            <select id="type">
+                                <option value="expense">Expense</option>
+                                <option value="income">Income</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category">
+                                <option value="Food">Food</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Shopping">Shopping</option>
+                                <option value="Education">Education</option>
+                                <option value="Bills">Bills</option>
+                                <option value="Health">Health</option>
+                                <option value="Salary">Salary</option>
+                                <option value="Freelance">Freelance</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Transaction Date</label>
+                            <input type="date" id="date">
+                            <small class="error-message" id="dateError"></small>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn primary-btn" id="submitButton">
+                        + Add Transaction
+                    </button>
+
+                    <button type="button" class="btn cancel-btn" id="cancelEdit" hidden>
+                        Cancel Edit
+                    </button>
+
+                    <p class="form-message" id="formMessage" aria-live="polite"></p>
+
+                </form>
+            </article>
+
+            <!-- Spending Breakdown -->
+            <article class="panel overview-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">YOUR SPENDING</p>
+                        <h2>Expense Breakdown</h2>
+                    </div>
+                </div>
+
+                <div id="categoryBreakdown" class="category-breakdown">
+                    <div class="empty-breakdown">
+                        <span class="empty-icon">◉</span>
+                        <p>No expenses recorded yet.</p>
+                        <small>Add an expense to see your breakdown.</small>
+                    </div>
+                </div>
+
+                <div class="overview-footer">
+                    <span>Total Expenses</span>
+                    <strong id="breakdownTotal">₹0.00</strong>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Transaction History -->
+        <section class="panel history-panel">
+
+            <div class="history-heading">
+                <div>
+                    <p class="eyebrow">YOUR RECORDS</p>
+                    <h2>Transaction History</h2>
+                    <p class="muted-text">View, filter, edit, or delete your transactions.</p>
+                </div>
+
+                <div class="history-count">
+                    <strong id="transactionCount">0</strong>
+                    <span>Transactions</span>
+                </div>
+            </div>
+
+            <div class="filter-bar">
+
+                <div class="search-box">
+                    <span>⌕</span>
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search transactions..."
+                    >
+                </div>
+
+                <select id="typeFilter" aria-label="Filter by transaction type">
+                    <option value="all">All Types</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+
+                <select id="categoryFilter" aria-label="Filter by category">
+                    <option value="all">All Categories</option>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Education">Education</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Health">Health</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Freelance">Freelance</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <button type="button" class="clear-filters" id="clearFilters">
+                    Reset Filters
+                </button>
+
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="transactionList"></tbody>
+                </table>
+            </div>
+
+            <div class="empty-state" id="emptyState">
+                <span class="empty-icon">₹</span>
+                <h3>No transactions yet</h3>
+                <p>Add your first income or expense to start tracking your money.</p>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <p>Small steps today, better finances tomorrow.</p>
+            <p>© <span id="currentYear">2026</span> ExpenseFlow. Built by Abhishek Yadav.</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
