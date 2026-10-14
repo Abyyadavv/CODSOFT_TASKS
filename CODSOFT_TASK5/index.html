@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Daily Edit — stories about technology, design, lifestyle and creativity.">
+    <title>The Daily Edit | Stories Worth Reading</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="#" class="logo">the<span>daily</span>edit.</a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+            ☰
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#articles">Articles</a>
+            <a href="#about">About</a>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="eyebrow">IDEAS. STORIES. INSPIRATION.</span>
+                <h1>Stories that make<br>you <span>think differently.</span></h1>
+                <p>Fresh perspectives on technology, creativity, lifestyle and the world around us.</p>
+                <a href="#articles" class="btn">Explore Articles <span>↘</span></a>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-shape">
+                    <span>✳</span>
+                    <p>READ<br>WHAT<br>MOVES YOU.</p>
+                </div>
+                <span class="hero-note">Curiosity looks good on you.</span>
+            </div>
+        </section>
+
+        <section class="featured-section">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">EDITOR'S PICK</span>
+                    <h2>Featured story</h2>
+                </div>
+                <span class="featured-label">THIS WEEK'S READ</span>
+            </div>
+
+            <article class="featured-card">
+                <div class="featured-image">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85"
+                         alt="Laptop and workspace on a desk">
+                    <span class="image-tag">TECHNOLOGY</span>
+                </div>
+                <div class="featured-content">
+                    <span class="article-date">OCTOBER 08, 2026 · 6 MIN READ</span>
+                    <h3>The Future of Web Development: What Comes Next?</h3>
+                    <p>From AI-assisted coding to immersive digital experiences, discover the ideas shaping the next generation of the web.</p>
+                    <button class="read-link" data-article="future-web">Read Full Story ↗</button>
+                </div>
+            </article>
+        </section>
+
+        <section class="articles-section" id="articles">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">THE LATEST</span>
+                    <h2>Explore our stories<span class="accent">.</span></h2>
+                    <p class="section-description">A little knowledge, a little inspiration, every day.</p>
+                </div>
+                <span class="article-total" id="articleTotal">6 ARTICLES</span>
+            </div>
+
+            <div class="filter-toolbar">
+                <div class="category-filters" id="categoryFilters">
+                    <button class="filter-btn active" data-category="All">All Stories</button>
+                    <button class="filter-btn" data-category="Technology">Technology</button>
+                    <button class="filter-btn" data-category="Design">Design</button>
+                    <button class="filter-btn" data-category="Lifestyle">Lifestyle</button>
+                    <button class="filter-btn" data-category="Productivity">Productivity</button>
+                </div>
+
+                <label class="search-box">
+                    <span>⌕</span>
+                    <input type="search" id="searchInput" placeholder="Search stories..." aria-label="Search articles">
+                </label>
+            </div>
+
+            <div class="blog-grid" id="blogGrid"></div>
+
+            <div class="load-more-wrap">
+                <button class="btn btn-outline" id="loadMoreBtn">Load More Stories ↓</button>
+                <p id="resultsMessage" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="newsletter" id="about">
+            <div>
+                <span class="eyebrow">A NOTE FROM US</span>
+                <h2>Good ideas deserve<br>to be shared.</h2>
+                <p>The Daily Edit is a personal blog concept built around curiosity, creativity and useful ideas.</p>
+            </div>
+            <div class="newsletter-mark">d<span>.</span>e</div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a href="#" class="logo">the<span>daily</span>edit.</a>
+        <p>Made with curiosity by Abhishek Yadav.</p>
+        <p>© <span id="currentYear">2026</span> The Daily Edit. All rights reserved.</p>
+    </footer>
+
+    <dialog class="article-dialog" id="articleDialog">
+        <button class="dialog-close" id="dialogClose" aria-label="Close article">×</button>
+        <div id="articleDetail"></div>
+    </dialog>
+
+</body>
+</html>
