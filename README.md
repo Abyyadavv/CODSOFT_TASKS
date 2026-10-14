@@ -36,6 +36,14 @@ A responsive blog website with a clean layout for presenting blog content and cr
 
 Technologies:HTML, CSS, JavaScript
 
+🚀 Live Projects
+
+[Task 1 — Personal Portfolio](https://abyyadavv.github.io/CODSOFT_TASKS/CODSOFT_TASK1/)
+[Task 2 — To-Do List App](https://abyyadavv.github.io/CODSOFT_TASKS/CODSOFT_TASK2/)
+[Task 3 — Expense Tracker](https://abyyadavv.github.io/CODSOFT_TASKS/CODSOFT_TASK3/)
+[Task 4 — Music Player](https://abyyadavv.github.io/CODSOFT_TASKS/CODSOFT_TASK4/)
+[Task 5 — Blog Website](https://abyyadavv.github.io/CODSOFT_TASKS/CODSOFT_TASK5/)
+
 🛠️ Technologies Used
 
 * HTML5
